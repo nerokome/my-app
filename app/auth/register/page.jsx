@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Dong from "../../landingpage/components/Dong";
+import Image from "next/image";
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -48,11 +49,16 @@ const Page = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <img
-            src="/kep.png"
-            alt="SCAH Logo"
-            className="w-28 sm:w-36 md:w-40 object-contain"
-          />
+          import Image from 'next/image';
+
+<Image
+  src="/kep.png"
+  alt="SCAH Logo"
+  width={160} // md:w-40 = 160px
+  height={64} // Adjust based on actual image ratio
+  className="w-28 sm:w-36 md:w-40 object-contain"
+/>
+
         </motion.div>
       </div>
 

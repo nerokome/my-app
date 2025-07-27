@@ -76,7 +76,7 @@ const Page = () => {
     >
 
 
-      <main className="flex-grow flex flex-col md:flex-row">
+      <main className=" flex flex-col md:flex-row">
         {/* Left: Text & Form */}
         <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
           <div className="w-full max-w-2xl text-center">
