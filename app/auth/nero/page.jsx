@@ -1,9 +1,8 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import Dong from '../../landingpage/components/Dong';
-
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -22,20 +21,18 @@ const Page = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!email || !password) {
       return setError('Please fill in all fields.');
     }
-
-    // Proceed with login logic
     console.log('Form submitted', formData);
   };
 
   return (
-    <div className='min-h-screen bg-black'>
-      <div className="bg-black flex items-center justify-center h-20 w-full">
+    <div className="min-h-screen bg-black flex flex-col">
+      {/* Header */}
+      <div className="flex items-center justify-center h-20 w-full bg-black px-4 sm:px-6">
         <motion.div
-          className="flex items-center gap-2 self-start "
+          className="flex items-center gap-2 self-start"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -43,25 +40,26 @@ const Page = () => {
           <img
             src="/kep.png"
             alt="SCAH Logo"
-            className="w-32 h-25 md:w-40 object-contain"
+            className="w-28 sm:w-36 md:w-40 object-contain"
           />
         </motion.div>
       </div>
 
+      {/* Login Form */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="flex items-center justify-center h-[500px] sm:h-[700px] bg-[#F4F2EE] px-4 sm:px-6"
+        className="flex flex-1 items-center justify-center bg-[#F4F2EE] px-4 sm:px-6 py-8"
       >
         <motion.div
-          className="w-full max-w-md bg-white p-6 sm:p-8 rounded-xl shadow-xl"
+          className="w-full max-w-sm sm:max-w-md md:max-w-lg xl:max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-xl"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <motion.h2
-            className="text-2xl sm:text-3xl font-bold text-center  text-teal-800 mb-6"
+            className="text-2xl sm:text-3xl font-bold text-center text-teal-800 mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -80,6 +78,7 @@ const Page = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Email */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -99,6 +98,7 @@ const Page = () => {
               />
             </motion.div>
 
+            {/* Password */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -126,18 +126,19 @@ const Page = () => {
               </div>
             </motion.div>
 
+            {/* Submit */}
             <motion.button
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-2 mt-4 bg-teal-900 text-white rounded-md hover:bg-teal-900 transition duration-200 text-sm font-medium"
+              className="w-full py-2 mt-4 bg-teal-900 text-white rounded-md hover:bg-teal-800 transition duration-200 text-sm font-medium"
             >
               Sign In
             </motion.button>
           </form>
 
           <div className="text-center mt-4 text-sm text-gray-600">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{' '}
             <a href="/auth/register" className="text-teal-800 font-medium hover:underline">
               Register
             </a>
@@ -145,7 +146,8 @@ const Page = () => {
         </motion.div>
       </motion.div>
 
-      <Dong/>
+      {/* Footer */}
+      <Dong />
     </div>
   );
 };

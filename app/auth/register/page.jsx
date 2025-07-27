@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Dong from "../../landingpage/components/Dong";
 
-
 const Page = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -35,41 +34,43 @@ const Page = () => {
       setError("Passwords do not match.");
     } else {
       const userData = { name, email, password };
-      // Submit userData to backend or handle as needed
+      console.log("Registering user:", userData);
     }
   };
 
   return (
-    <div className="min-h-screen bg-black w-full">
-      <div className="bg-black flex items-center justify-center h-20 w-full">
+    <div className="min-h-screen bg-black flex flex-col w-full">
+      {/* Logo Section */}
+      <div className="bg-black flex items-center justify-center h-20 w-full px-4 sm:px-6">
         <motion.div
           className="flex items-center gap-2 self-start"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-           <img
+          <img
             src="/kep.png"
             alt="SCAH Logo"
-            className="w-32 h-25 md:w-40 object-contain"
+            className="w-28 sm:w-36 md:w-40 object-contain"
           />
         </motion.div>
       </div>
 
+      {/* Form Section */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex items-center justify-center h-[700px] bg-[#F4F2EE] px-4"
+        className="flex flex-1 items-center justify-center bg-[#F4F2EE] px-4 sm:px-6 py-10"
       >
         <motion.div
-          className="w-full max-w-md md:max-w-lg lg:max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-xl"
+          className="w-full max-w-sm sm:max-w-md md:max-w-lg xl:max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-xl"
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <motion.h2
-            className="text-2xl sm:text-3xl font-bold mb-6 text-center  text-teal-800"
+            className="text-2xl sm:text-3xl font-bold mb-6 text-center text-teal-800"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -88,6 +89,7 @@ const Page = () => {
           )}
 
           <form onSubmit={handleSubmit} className="grid gap-4">
+            {/* Name */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -103,10 +105,11 @@ const Page = () => {
                 placeholder="Enter your name"
                 value={name}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
               />
             </motion.div>
 
+            {/* Email */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -122,23 +125,27 @@ const Page = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
               />
             </motion.div>
 
-            <label htmlFor="role" className="block mb-1 text-sm font-medium">
-              Please specify
-            </label>
-            <select
-              id="role"
-              className="w-full p-2 rounded-lg py-1 px-3 shadow-md border border-gray-300 shadow-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-800"
-            >
-              <option>I am</option>
-              <option>I am an Athlete</option>
-              <option>I am a Coach</option>
-              <option>I am a Scout</option>
-            </select>
+            {/* Role */}
+            <div>
+              <label htmlFor="role" className="block mb-1 text-sm font-medium">
+                Please specify
+              </label>
+              <select
+                id="role"
+                className="w-full p-2 rounded-lg py-1 px-3 shadow-md border border-gray-300 shadow-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-800 text-sm"
+              >
+                <option>I am</option>
+                <option>I am an Athlete</option>
+                <option>I am a Coach</option>
+                <option>I am a Scout</option>
+              </select>
+            </div>
 
+            {/* Password */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -155,7 +162,7 @@ const Page = () => {
                   placeholder="Enter your password"
                   value={password}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none pr-10"
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
                 />
                 <div
                   className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-500"
@@ -166,6 +173,7 @@ const Page = () => {
               </div>
             </motion.div>
 
+            {/* Confirm Password */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -182,7 +190,7 @@ const Page = () => {
                   placeholder="Confirm your password"
                   value={password2}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none pr-10"
+                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
                 />
                 <div
                   className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-500"
@@ -193,16 +201,18 @@ const Page = () => {
               </div>
             </motion.div>
 
+            {/* Submit */}
             <motion.button
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-3 mt-4 bg-teal-800 text-white rounded-md hover:bg-teal-900 transition duration-200"
+              className="w-full py-3 mt-4 bg-teal-800 text-white rounded-md hover:bg-teal-900 transition duration-200 text-sm font-medium"
             >
               Create an account
             </motion.button>
           </form>
 
+          {/* Login Redirect */}
           <p className="mt-4 text-center text-sm text-gray-500">
             Already have an account?{" "}
             <a href="/auth/nero" className="text-teal-800 hover:underline">
@@ -211,7 +221,8 @@ const Page = () => {
           </p>
         </motion.div>
       </motion.div>
-      <Dong/>
+
+      <Dong />
     </div>
   );
 };

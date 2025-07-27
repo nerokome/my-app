@@ -11,7 +11,7 @@ const Start = () => {
       viewport={{ once: true }}
     >
       <motion.p
-        className="text-2xl sm:text-4xl text-center sm:text-left font-sans text-gray-300 font-bold"
+        className="text-2xl sm:text-4xl text-center sm:text-left  text-gray-300 font-bold"
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
@@ -29,7 +29,7 @@ const Start = () => {
           <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="rounded-3xl py-2 px-6  font-semibold text-xl text-gray-700 bg-gray-200 hover:bg-gray-400"
+          className="rounded-3xl py-2 px-6  font-semibold text-xl text-gray-900 bg-[#F4F2EE]"
         >
           Start your journey 
         </motion.button>

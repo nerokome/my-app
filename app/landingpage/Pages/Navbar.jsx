@@ -57,13 +57,13 @@ const Navbar = () => {
 
         <div className="hidden lg:flex gap-3 p-3 mt-4 group">
           <Link href="/auth/register">
-            <button className="bg-teal-800 hover:bg-transparent text-white hover:text-teal-800 text-sm border border-teal-800 py-2 px-4 h-10 rounded-xl flex items-center gap-2 transition-all duration-300">
+            <button className="bg-teal-800 hover:bg-transparent text-white hover:text-teal-800 text-sm border in-hover:cursor-pointer border-teal-800 py-2 px-4 h-10 rounded-xl flex items-center gap-2 transition-all duration-300">
               <IoPerson size={20} className="text-white group-hover:text-teal-800" />
               Sign up
             </button>
           </Link>
           <Link href="/auth/nero">
-            <button className="bg-teal-800 hover:bg-transparent text-white hover:text-teal-800 text-sm border border-teal-800 py-2 px-4 h-10 rounded-xl flex items-center gap-2 transition-all duration-300">
+            <button className="bg-teal-800 hover:bg-transparent text-white hover:text-teal-800 text-sm border hover:cursor-pointer border-teal-800 py-2 px-4 h-10 rounded-xl flex items-center gap-2 transition-all duration-300">
               <IoPerson size={20} className="text-white group-hover:text-teal-800" />
               Sign in
             </button>
