@@ -75,13 +75,14 @@ const Part = () => {
               viewport={{ once: true }}
               variants={cardVariant}
             >
-              <Image
-    src={item.image}
-    alt={item.title}
-    fill
-    loading="lazy"
-    className="object-cover rounded-md"
-  />
+               <Image
+      src={item.image}
+      alt={item.title}
+      loading="lazy"
+      width={800} // Adjust as needed
+      height={224} // Equivalent to Tailwind h-56
+      className="w-full h-auto object-cover rounded-md mb-4"
+    />
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{item.title}</h3>
               <p className="text-sm sm:text-base text-gray-200">{item.description}</p>
             </motion.a>
