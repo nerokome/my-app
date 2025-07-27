@@ -68,7 +68,7 @@ const Page = () => {
     <div>
         <NavbarWithScroll/>
           <motion.div
-      className="min-h-screen flex flex-col justify-between bg-[#F4F2EE]"
+      className="min-h-screen flex flex-col justify-between bg-[#F4F2EE] pt-13"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -81,9 +81,9 @@ const Page = () => {
         <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
           <div className="w-full max-w-2xl text-center">
             <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
-              <p className="text-3xl pt-10 sm:pt-0 sm:text-4xl font-semibold">Scout,</p>
+              
               <p className="text-3xl sm:text-4xl font-semibold">
-                Spot and Develop Talent
+                Scout, Spot and Develop Talent
               </p>
             </div>
             <p className="text-3xl sm:text-4xl font-semibold mt-2">— All in one place</p>
