@@ -25,7 +25,7 @@ const Page = () => {
       <NavbarWithScroll/>
        <div className="relative overflow-hidden">
       <div className='min-h-screen bg-[#F4F2EE] py-16 '>
-           <div className="relative h-[900px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
+           <div className="relative h-[850px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
         {images.map((img, index) => (
           <motion.img
             key={index}
