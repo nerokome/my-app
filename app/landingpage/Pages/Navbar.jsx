@@ -9,8 +9,12 @@ import Image from 'next/image';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const pathname = usePathname();
-
+  const pathname = usePathname() || '/home';
+  React.useEffect(() => {
+    if (pathname === '/') {
+      window.location.replace('/home');
+    }
+  }, [pathname]);
   const navLinks = [
     { name: 'Home', to: '/home' },
     { name: 'Mission', to: '/mission' },
@@ -58,7 +62,7 @@ const Navbar = () => {
               Sign up
             </button>
           </Link>
-          <Link href="/login">
+          <Link href="/signin">
             <button className="bg-teal-800 hover:bg-transparent text-white hover:text-teal-800 text-sm border border-teal-800 py-2 px-4 h-10 rounded-xl flex items-center gap-2 transition-all duration-300">
               <IoPerson size={20} className="text-white group-hover:text-teal-800" />
               Sign in
@@ -101,7 +105,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col gap-3">
-          <Link href="/login" onClick={handleNav}>
+          <Link href="/" onClick={handleNav}>
             <span className="block text-center px-4 py-2 border border-gray-900 text-gray-900 rounded hover:bg-white hover:text-black transition">
               Sign In
             </span>
