@@ -1,9 +1,11 @@
+'use client'
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import Dong from '../components/Dong';
+import Dong from '../../landingpage/components/Dong';
 
-const Login = () => {
+
+const Page = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -143,9 +145,9 @@ const Login = () => {
         </motion.div>
       </motion.div>
 
-      <Dong />
+      <Dong/>
     </div>
   );
 };
 
-export default Login;
+export default Page;

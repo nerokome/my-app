@@ -1,9 +1,11 @@
+'use client';
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import Dong from "../components/Dong";
+import Dong from "../../landingpage/components/Dong";
 
-const Register = () => {
+
+const Page = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -203,15 +205,15 @@ const Register = () => {
 
           <p className="mt-4 text-center text-sm text-gray-500">
             Already have an account?{" "}
-            <a href="/login" className="text-teal-800 hover:underline">
+            <a href="/auth/nero" className="text-teal-800 hover:underline">
               Login
             </a>
           </p>
         </motion.div>
       </motion.div>
-      <Dong />
+      <Dong/>
     </div>
   );
 };
 
-export default Register;
+export default Page;

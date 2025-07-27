@@ -118,7 +118,7 @@ const Page = () => {
             </div>
 
             {message && (
-              <p className="mt-4 text-sm font-medium text-green-600">{message}</p>
+              <p className="mt-4 text-sm font-medium text-teal-800">{message}</p>
             )}
           </div>
         </div>

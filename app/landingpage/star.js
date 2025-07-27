@@ -9,7 +9,7 @@ export default function Star({ children }) {
   const pathname = usePathname();
 
   
-  const noNavbarRoutes = ['/login', '/register'];
+  
   const shouldShowNavbar = !noNavbarRoutes.includes(pathname);
 
   
