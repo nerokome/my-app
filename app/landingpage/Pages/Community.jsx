@@ -1,7 +1,8 @@
+'use client';
 import React, { useRef, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 
-// Lazy-loaded components
+// Lazy-loaded components (ensure these are client components)
 const Endcontact = lazy(() => import('../components/Endcontact'));
 const Commune = lazy(() => import('../components/Commune'));
 
@@ -38,7 +39,7 @@ const Community = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Connect Compete Grow together
+            Connect. Compete. Grow Together.
           </motion.h1>
 
           <motion.p
@@ -49,23 +50,21 @@ const Community = () => {
           >
             Join a global network of athletes, scouts, and coaches.
             Share your journey, connect with others, and grow through real conversation.
-            <span className="font-semibold"> Your next breakthrough could start here. </span>
+            <span className="font-semibold"> Your next breakthrough could start here. </span>
           </motion.p>
 
-          <a href="/join">
-            <motion.button
-              onClick={scrollToPart}
-              className="mt-6 px-6 py-3 bg-teal-800 border border-teal-800 shadow-lg text-xl text-white rounded-lg font-semibold hover:bg-transparent transition"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get started
-            </motion.button>
-          </a>
+          <motion.button
+            onClick={scrollToPart}
+            className="mt-6 px-6 py-3 bg-teal-800 border border-teal-800 shadow-lg text-xl text-white rounded-lg font-semibold hover:bg-transparent transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Get started
+          </motion.button>
         </div>
       </div>
 
-      {/* ⬇️ Lazy-loaded Part Section */}
+      {/* ⬇️ Lazy-loaded Section */}
       <div ref={partRef} className="relative z-30">
         <Suspense fallback={<div className="text-white p-6 text-center">Loading content...</div>}>
           <Commune />
