@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const roadmapItems = [
   {
@@ -67,16 +68,22 @@ const Body = () => {
           <div className="block sm:hidden w-[80%] h-px bg-teal-800 my-6"></div>
 
           {/* Image */}
-          <motion.img
-            src={item.image}
-            alt={item.title}
-            className="w-[250px] h-[250px] object-cover rounded-full shadow-md"
-            loading="lazy"
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          />
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
+         transition={{ duration: 0.5 }}
+>
+  <div className="w-[250px] h-[250px] relative">
+    <Image
+      src={item.image}
+      alt={item.title}
+      fill
+      className="object-cover rounded-full shadow-md"
+      loading="lazy"
+    />
+  </div>
+</motion.div>
         </motion.div>
       ))}
     </div>

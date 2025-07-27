@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const resources = [
   {
@@ -74,12 +75,13 @@ const Part = () => {
               viewport={{ once: true }}
               variants={cardVariant}
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                className="w-full h-48 sm:h-56 object-cover rounded-md mb-4"
-              />
+              <Image
+    src={item.image}
+    alt={item.title}
+    fill
+    loading="lazy"
+    className="object-cover rounded-md"
+  />
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{item.title}</h3>
               <p className="text-sm sm:text-base text-gray-200">{item.description}</p>
             </motion.a>

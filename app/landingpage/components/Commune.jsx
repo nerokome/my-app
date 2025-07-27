@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiExternalLink } from 'react-icons/fi';
+import Image from 'next/image';
 
 const communityData = [
   {
@@ -108,11 +109,13 @@ const Commune = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <div className="h-44 overflow-hidden">
-                  <img
-                    src={group.image}
-                    alt={group.role}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+         <Image
+        src={group.image}
+           alt={group.role}
+          width={500} // or set your preferred width
+         height={500} // or set your preferred height
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+/>
                 </div>
                 <div className="p-6 text-left">
                   <div className="flex items-center justify-between mb-2">

@@ -6,6 +6,7 @@ import Start from '../landingpage/components/Start';
 import NewsletterForm from '../landingpage/components/Newsletterform';
 import Endcontact from '../landingpage/components/Endcontact';
 import NavbarWithScroll from '../landingpage/Pages/Navbarscroll';
+import Image from 'next/image';
 
 
 const images = ['/coa.webp', '/roa.webp', '/toa.webp'];
@@ -26,20 +27,25 @@ const Page = () => {
        <div className="relative overflow-hidden">
       <div className='min-h-screen bg-[#F4F2EE] py-16 '>
            <div className="relative h-[850px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
-        {images.map((img, index) => (
-          <motion.img
-            key={index}
-            src={img}
-            alt={`Slide ${index}`}
-            loading={index === current ? 'eager' : 'lazy'} // ✅ lazy loading
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${
-              index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
-            initial={false}
-            animate={{ opacity: index === current ? 1 : 0 }}
-            transition={{ duration: 1 }}
-          />
-        ))}
+       {images.map((img, index) => (
+  <motion.div
+    key={index}
+    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+      index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
+    }`}
+    initial={false}
+    animate={{ opacity: index === current ? 1 : 0 }}
+    transition={{ duration: 1 }}
+  >
+    <Image
+      src={img}
+      alt={`Slide ${index}`}
+      fill
+      loading={index === current ? 'eager' : 'lazy'}
+      className="object-cover object-center"
+    />
+  </motion.div>
+))}
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/60 z-20" />
