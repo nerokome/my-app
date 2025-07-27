@@ -70,8 +70,8 @@ const Endcontact = () => {
         >
           <h4 className="font-semibold text-lg">Account</h4>
           <ul className="space-y-1 text-sm">
-            <li><a href="/login" className="hover:underline">Sign in</a></li>
-            <li><a href="/register" className="hover:underline">Sign up</a></li>
+            <li><a href="/auth/nero" className="hover:underline">Sign in</a></li>
+            <li><a href="/auth/register" className="hover:underline">Sign up</a></li>
           </ul>
         </motion.div>
       </div>
