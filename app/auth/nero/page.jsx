@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import Dong from '../../landingpage/components/Dong';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -31,20 +32,22 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col overflow-x-hidden">
       {/* Header */}
-      <div className="flex items-start justify-center h-30 w-full bg-black px-4 sm:px-6">
+      <div className="flex items-start justify-center h-20  sm:h-30   w-full bg-black px-4 sm:px-6">
         <motion.div
-          className="flex items-center  self-start"
+          className="flex items-center pb-3  self-start"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-        >
-          <Image
+        ><Link href="/home" >
+        <Image
             src="/kep.png"
             alt="SCAH Logo"
             width={160} // md:w-40 = 160px
             height={64} // Adjust based on actual image ratio
             className="w-28 sm:w-36 md:w-40 object-contain"
           />
+        </Link>
+          
         </motion.div>
       </div>
 
