@@ -23,7 +23,7 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#F4F2EE]  px-4">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
-        <h1 className="text-xl font-bold mb-4">Forgot Password</h1>
+        <h1 className="text-xl font-bold mb-4">Forgot password</h1>
         <form onSubmit={handleSubmit}>
           <label className="block mb-2 text-sm font-medium">Email Address</label>
           <input
