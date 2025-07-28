@@ -42,25 +42,23 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col w-full">
       {/* Logo Section */}
-      <div className="bg-black flex items-center justify-center h-20 w-full px-4 sm:px-6">
-        <motion.div
-          className="flex items-center gap-2 self-start"
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          import Image from 'next/image';
-
-<Image
-  src="/kep.png"
-  alt="SCAH Logo"
-  width={160} // md:w-40 = 160px
-  height={64} // Adjust based on actual image ratio
-  className="w-28 sm:w-36 md:w-40 object-contain"
-/>
-
-        </motion.div>
-      </div>
+     <div className="flex items-start justify-center h-30 w-full bg-black px-4 sm:px-6">
+             <motion.div
+               className="flex items-center  self-start"
+               initial={{ x: -50, opacity: 0 }}
+               animate={{ x: 0, opacity: 1 }}
+               transition={{ duration: 0.6 }}
+             >
+               <Image
+                 src="/kep.png"
+                 alt="SCAH Logo"
+                 width={160} // md:w-40 = 160px
+                 height={64} // Adjust based on actual image ratio
+                 className="w-28 sm:w-36 md:w-40 object-contain"
+               />
+             </motion.div>
+           </div>
+     
 
       {/* Form Section */}
       <motion.div

@@ -12,11 +12,11 @@ const Endcontact = () => {
   return (
     <footer className="bg-black text-gray-200 px-6 sm:px-8 py-5">
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-start gap-y-10 gap-x-12 flex-wrap">
+      <div className="w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-start gap-y-10 gap-x-12 flex-wrap">
         
         {/* Logo */}
         <motion.div
-          className="flex items-center gap-2 self-start"
+          className="flex  gap-2 self-start"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -77,7 +77,7 @@ const Endcontact = () => {
       </div>
 
       {/* Bottom Note + Socials */}
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center mt-10 gap-6 sm:gap-8 text-start">
+      <div className="w-full mx-auto flex flex-col sm:flex-row justify-between items-center mt-10 gap-6 sm:gap-8 text-start">
          <motion.div
           className="flex gap-4"
           initial={{ opacity: 0 }}

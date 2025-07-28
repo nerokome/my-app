@@ -33,8 +33,8 @@ const Navbar = () => {
           <Image
             src="/kep.png"
             alt="SCAH Logo"
-            width={160}
-            height={40}
+            width={130}
+            height={30}
             priority
             className="object-contain"
           />
