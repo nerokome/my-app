@@ -42,7 +42,7 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col w-full overflow-x-hidden">
       {/* Logo Section */}
-     <div className="flex items-start justify-center h-30 w-full bg-black px-4 sm:px-6">
+     <div className="flex items-start justify-center h-20 w-full bg-black px-4 sm:px-6">
              <motion.div
                className="flex items-center  self-start"
                initial={{ x: -50, opacity: 0 }}
