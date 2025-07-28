@@ -32,7 +32,7 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col overflow-x-hidden">
       {/* Header */}
-      <div className="flex items-start justify-center h-20  sm:h-30   w-full bg-black px-4 sm:px-6">
+      <div className="flex items-start justify-center h-23  sm:h-30   w-full bg-black px-4 sm:px-6">
         <motion.div
           className="flex items-center pb-3  self-start"
           initial={{ x: -50, opacity: 0 }}

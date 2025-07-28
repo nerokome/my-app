@@ -43,9 +43,9 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col w-full overflow-x-hidden">
       {/* Logo Section */}
-     <div className="flex items-start justify-center h-20  sm:h-30 w-full bg-black ">
+     <div className="flex items-start justify-center h-23  sm:h-30 w-full bg-black ">
              <motion.div
-               className="flex  self-start"
+               className="flex  self-start "
                initial={{ x: -50, opacity: 0 }}
                animate={{ x: 0, opacity: 1 }}
                transition={{ duration: 0.6 }}
