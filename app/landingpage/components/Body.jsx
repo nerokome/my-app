@@ -39,7 +39,7 @@ const Body = () => {
   return (
     <div className="flex flex-col items-center min-h-screen bg-[#F4F2EE] py-12 px-4">
       <motion.p
-        className="font-semibold text-3xl mb-12 text-center"
+        className="font-semibold text-2xl sm:text-3xl mb-12 text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

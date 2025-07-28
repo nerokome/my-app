@@ -82,7 +82,7 @@ const Page = () => {
           <div className="w-full max-w-2xl text-center">
             <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
               
-              <p className="text-3xl sm:text-4xl font-semibold">
+              <p className="text-2xl sm:text-4xl font-semibold">
                 Scout, Spot and Develop Talent
               </p>
             </div>
