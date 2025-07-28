@@ -86,7 +86,7 @@ const Page = () => {
                 Scout, Spot and Develop Talent
               </p>
             </div>
-            <p className="text-3xl sm:text-4xl font-semibold mt-2">— All in one place</p>
+            <p className="text-2xl sm:text-4xl font-semibold mt-2">— All in one place</p>
 
             <p className="mt-6 text-base sm:text-lg font-medium text-gray-700">
               Welcome to SCAH, the all-in-one scouting hub unlocking hidden youth talent through data,
