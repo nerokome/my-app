@@ -40,7 +40,7 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col w-full">
+    <div className="min-h-screen bg-black flex flex-col w-full overflow-x-hidden">
       {/* Logo Section */}
      <div className="flex items-start justify-center h-30 w-full bg-black px-4 sm:px-6">
              <motion.div
@@ -65,7 +65,7 @@ const Page = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex flex-1 items-center justify-center bg-[#F4F2EE] px-4 sm:px-6 py-10"
+        className="flex flex-1 items-center justify-center bg-[#F4F2EE] px-4 sm:px-6 py-10 w-full overflow-x-hidden"
       >
         <motion.div
           className="w-full max-w-sm sm:max-w-md md:max-w-lg xl:max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-xl"

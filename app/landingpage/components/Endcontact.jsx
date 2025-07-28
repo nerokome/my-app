@@ -12,7 +12,7 @@ const Endcontact = () => {
   return (
     <footer className="bg-black text-gray-200 px-6 sm:px-8 py-5">
       {/* Top Section */}
-      <div className="w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-start gap-y-10 gap-x-12 flex-wrap">
+      <div className="w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-start gap-y-10 gap-x-5 flex-wrap">
         
         {/* Logo */}
         <motion.div
@@ -63,7 +63,7 @@ const Endcontact = () => {
 
         {/* Account */}
         <motion.div
-          className="flex flex-col gap-2 self-start"
+          className="flex flex-col gap-2 self-start pr-30"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -90,7 +90,7 @@ const Endcontact = () => {
           <a href="#" className="text-gray-300 hover:text-gray-600"><FaXTwitter size={20} /></a>
           
         </motion.div>
-        <p className="text-md text-gray-300">SCAH ©2025</p>
+        <p className="text-md pr-0 sm:pr-30 text-gray-300">SCAH ©2025</p>
 
        
       </div>

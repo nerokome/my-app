@@ -30,7 +30,7 @@ const Page = () => {
   };
 
   return (
-    <div className='min-h-screen bg-black'>
+    <div className='min-h-screen bg-black overflow-x-hidden'>
       <div className="bg-black flex items-center justify-center h-20 w-full">
         <motion.div
           className="flex items-center gap-2 self-start "
@@ -50,7 +50,7 @@ const Page = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="flex items-center justify-center h-[500px] sm:h-[700px] bg-[#F4F2EE] px-4 sm:px-6"
+        className="flex items-center justify-center h-[500px] sm:h-[700px] bg-[#F4F2EE] px-4 sm:px-6 overflow-x-hidden"
       >
         <motion.div
           className="w-full max-w-md bg-white p-6 sm:p-8 rounded-xl shadow-xl"
