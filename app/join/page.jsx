@@ -42,7 +42,7 @@ const Page = () => {
     setMessage('');
 
     try {
-      const res = await fetch('/api/v1/waitlist', {
+      const res = await fetch('', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

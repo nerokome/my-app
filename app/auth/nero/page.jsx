@@ -32,22 +32,22 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col overflow-x-hidden">
       {/* Header */}
-      <div className="flex items-start justify-center h-23  sm:h-30   w-full bg-black px-4 sm:px-6">
+      <div className="flex items-start justify-center h-23 sm:h-30 w-full bg-black px-4 sm:px-6">
         <motion.div
-          className="flex items-center pb-3  self-start"
+          className="flex items-center pb-3 self-start"
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
-        ><Link href="/home" >
-        <Image
-            src="/kep.png"
-            alt="SCAH Logo"
-            width={160} // md:w-40 = 160px
-            height={64} // Adjust based on actual image ratio
-            className="w-28 sm:w-36 md:w-40 object-contain"
-          />
-        </Link>
-          
+        >
+          <Link href="/home">
+            <Image
+              src="/kep.png"
+              alt="SCAH Logo"
+              width={160}
+              height={64}
+              className="w-28 sm:w-36 md:w-40 object-contain"
+            />
+          </Link>
         </motion.div>
       </div>
 
@@ -132,6 +132,18 @@ const Page = () => {
               </div>
             </motion.div>
 
+            {/* Forgot Password Link */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="text-right text-sm mt-1"
+            >
+              <Link href="/auth/forgot" className="text-teal-800 hover:underline">
+                Forgot Password?
+              </Link>
+            </motion.div>
+
             {/* Submit */}
             <motion.button
               type="submit"
@@ -143,11 +155,12 @@ const Page = () => {
             </motion.button>
           </form>
 
+          {/* Register Link */}
           <div className="text-center mt-4 text-sm text-gray-600">
             Don&apos;t have an account?{' '}
-            <a href="/auth/register" className="text-teal-800 font-medium hover:underline">
+            <Link href="/auth/register" className="text-teal-800 font-medium hover:underline">
               Register
-            </a>
+            </Link>
           </div>
         </motion.div>
       </motion.div>
