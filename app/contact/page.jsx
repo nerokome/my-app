@@ -35,7 +35,7 @@ const Page = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Get in Touch with SCAH
+            
           </motion.h1>
 
           <motion.p
