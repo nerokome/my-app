@@ -52,7 +52,7 @@ const Page = () => {
           whileTap={{ scale: 0.95 }}
               className="mt-6 px-6 py-3 bg-teal-900 border border-teal-900 shadow-lg text-xl text-white rounded-lg font-semibold hover:bg-transparent transition inline-block text-center"
 >
-            View Contact 
+            View Contact info
             </motion.a>
 
         </div>
