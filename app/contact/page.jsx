@@ -44,7 +44,7 @@ const Page = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Connect with us for partnerships, sales, support, and safeguarding inquiries.
+            Connect  us for partnerships, sales, support, and safeguarding inquiries.
           </motion.p>
          <motion.a
           href="mailto:support@scah.club"
