@@ -100,7 +100,7 @@ const Page = () => {
                 >
                   <option>please specify</option>
                   <option>Athlete</option>
-                  <option>Coach</option>
+                  
                   <option>Scout</option>
                 </select>
 
