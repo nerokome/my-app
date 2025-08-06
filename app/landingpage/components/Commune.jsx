@@ -102,7 +102,7 @@ const Commune = () => {
               className="block group transition-transform transform hover:scale-[1.02]"
             >
               <motion.div
-                className="cursor-pointer bg-teal-900 rounded-2xl overflow-hidden transition duration-300"
+                className="cursor-pointer bg-teal-900 hover:bg-[#F4F2EE] hover:border hover:border-teal-900 rounded-2xl overflow-hidden transition duration-300 text-white hover:text-black"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -119,12 +119,12 @@ const Commune = () => {
                 </div>
                 <div className="p-6 text-left">
                   <div className="flex items-center justify-between mb-2">
-                    <div className="text-2xl flex text-white items-center gap-2 font-semibold hover:text-black">
+                    <div className="text-2xl flex  items-center gap-2 font-semibold ">
                       <span >{group.role}</span>
                     </div>
-                    <FiExternalLink className="text-[#F4F2EE]" />
+                    <FiExternalLink className="" />
                   </div>
-                  <p className="text-sm text-gray-300 hover:text-black">{group.description}</p>
+                  <p className="text-sm  ">{group.description}</p>
                 </div>
               </motion.div>
             </a>
