@@ -1,22 +1,19 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NavbarWithScroll from '../landingpage/Pages/Navbarscroll';
 import Endcontact from '../landingpage/components/Endcontact';
 
-const images = [
-  '/wen.webp',
-  '/amerball.webp',
-  '/ken.webp',
-];
+const images = ['/wen.webp', '/amerball.webp', '/ken.webp'];
 
 const Page = () => {
   const [email, setEmail] = useState('');
+  const [role, setRole] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Preload images to prevent flicker
+  // Preload slideshow images
   useEffect(() => {
     images.forEach((src) => {
       const img = new Image();
@@ -24,7 +21,7 @@ const Page = () => {
     });
   }, []);
 
-  // Change image every 4 seconds
+  // Image slideshow
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -32,20 +29,22 @@ const Page = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Form submit handler
   const handleSubscribe = async () => {
+    setMessage('');
     if (!email || !email.includes('@')) {
-      setMessage('❌ Please enter a valid email.');
-      return;
+      return setMessage('❌ Please enter a valid email.');
+    }
+    if (!role || role === 'I am') {
+      return setMessage('❌ Please select a role.');
     }
 
     setLoading(true);
-    setMessage('');
-
     try {
-      const res = await fetch('', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/waitlist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, role }),
       });
 
       const data = await res.json();
@@ -53,12 +52,13 @@ const Page = () => {
       if (res.ok) {
         setMessage('✅ You’ve been added to the waitlist!');
         setEmail('');
+        setRole('');
       } else {
         setMessage(data?.error || 'Something went wrong.');
       }
     } catch (err) {
       console.error(err);
-      setMessage('Something went wrong. Please try again.');
+      setMessage('❌ Network error. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -66,86 +66,87 @@ const Page = () => {
 
   return (
     <div>
-        <NavbarWithScroll/>
-          <motion.div
-      className="min-h-screen flex flex-col justify-between bg-[#F4F2EE] pt-13"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-
-
-      <main className=" flex flex-col md:flex-row">
-        {/* Left: Text & Form */}
-        <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
-          <div className="w-full max-w-2xl text-center">
-            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
-              
-              <p className="text-2xl sm:text-4xl font-semibold">
+      <NavbarWithScroll />
+      <motion.div
+        className="min-h-screen flex flex-col justify-between bg-[#F4F2EE] pt-13"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <main className="flex flex-col md:flex-row">
+          {/* Left Section */}
+          <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
+            <div className="w-full max-w-2xl text-center">
+              <h1 className="text-2xl sm:text-4xl font-semibold">
                 Scout, Spot and Develop Talent
+              </h1>
+              <h2 className="text-2xl sm:text-4xl font-semibold mt-2">
+                — All in one place
+              </h2>
+
+              <p className="mt-6 text-base sm:text-lg font-medium text-gray-700">
+                Welcome to SCAH, the all-in-one scouting hub unlocking hidden youth talent through data,
+                video, and performance tools. Join the next-gen platform built for scouts, coaches, and rising athletes.
               </p>
+
+              {/* Waitlist Form */}
+              <div className="mt-10 flex flex-col items-center gap-4 w-full max-w-lg mx-auto">
+                <select
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  className="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-800"
+                >
+                  <option>please specify</option>
+                  <option>Athlete</option>
+                  <option>Coach</option>
+                  <option>Scout</option>
+                </select>
+
+                <input
+                  type="email"
+                  placeholder="Enter your e-mail"
+                  className="w-full p-3 rounded-lg border shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-800"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+
+                <button
+                  onClick={handleSubscribe}
+                  disabled={loading}
+                  className="bg-teal-800 text-white w-full py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-200"
+                >
+                  {loading ? 'Submitting...' : 'Join Waitlist'}
+                </button>
+
+                {message && (
+                  <p className="mt-2 text-sm font-medium text-teal-800">{message}</p>
+                )}
+              </div>
             </div>
-            <p className="text-2xl sm:text-4xl font-semibold mt-2">— All in one place</p>
+          </div>
 
-            <p className="mt-6 text-base sm:text-lg font-medium text-gray-700">
-              Welcome to SCAH, the all-in-one scouting hub unlocking hidden youth talent through data,
-              video, and performance tools. Join the next-gen platform built for scouts, coaches, and rising athletes.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-col items-center gap-4 sm:gap-6 w-full max-w-lg mx-auto">
-               <select className="w-full p-2  rounded-lg py-1 px-3 shadow-md border border-gray-300 shadow-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-800">
-                <option>I am  </option>
-               <option>I am an Athlete </option>
-               <option>I am a Coach</option>
-                <option>I am a Scout</option>
-            
-          </select>
-              <input
-                type="email"
-                placeholder="Enter your e-mail"
-                className="flex-1 w-full p-3 rounded-lg shadow-md text-gray-800 placeholder-gray-500 placeholder: focus:outline-none focus:ring-2 focus:ring-teal-800"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <button
-                className="bg-teal-800 text-white px-6 py-3 rounded-lg shadow-md hover:bg-teal-800 transition-all duration-200 w-full sm:w-auto"
-                onClick={handleSubscribe}
-                disabled={loading}
-              >
-                {loading ? 'Submitting...' : 'Join Waitlist'}
-              </button>
+          {/* Right Section - Image Slideshow */}
+          <div className="md:w-1/2 w-full flex items-center justify-center p-6">
+            <div className="relative w-full max-w-md h-[300px] md:h-[400px] overflow-hidden rounded-3xl shadow-xl bg-transparent">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={images[currentImage]}
+                  src={images[currentImage]}
+                  alt="Slideshow"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                />
+              </AnimatePresence>
             </div>
-
-            {message && (
-              <p className="mt-4 text-sm font-medium text-teal-800">{message}</p>
-            )}
           </div>
-        </div>
-
-        {/* Right: Crossfade Image Slideshow */}
-        <div className="md:w-1/2 w-full flex items-center justify-center p-6">
-          <div className="relative w-full max-w-md h-[300px] md:h-[400px] overflow-hidden rounded-3xl  shadow-xl bg-transparent">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={images[currentImage]}
-                src={images[currentImage]}
-                alt="Slideshow"
-                className="absolute inset-0 w-full h-full object-cover"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6 }}
-              />
-            </AnimatePresence>
-          </div>
-        </div>
-      </main>
-       
-      <Endcontact/>
-    </motion.div>
+        </main>
+        <Endcontact />
+      </motion.div>
     </div>
-  
   );
 };
 
