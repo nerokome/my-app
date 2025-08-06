@@ -88,7 +88,7 @@ const Commune = () => {
     <div className="bg-[#F4F2EE] py-16 px-4 sm:px-10 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <motion.h2 className="text-3xl sm:text-4xl font-extrabold mb-6">
-          The SCAH Community
+          The <span className='text-teal-700'>SCAH</span> Community
         </motion.h2>
         <motion.p className="text-lg text-gray-700 mb-14">
           A collaborative space of athletes, coaches, scouts, and fans—each playing a vital role in discovering and developing future stars.
@@ -112,19 +112,19 @@ const Commune = () => {
          <Image
         src={group.image}
            alt={group.role}
-          width={500} // or set your preferred width
-         height={500} // or set your preferred height
+          width={500} 
+         height={500} 
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
 />
                 </div>
                 <div className="p-6 text-left">
                   <div className="flex items-center justify-between mb-2">
-                    <div className="text-2xl flex text-white items-center gap-2 font-semibold">
-                      <span>{group.role}</span>
+                    <div className="text-2xl flex text-white items-center gap-2 font-semibold hover:text-black">
+                      <span >{group.role}</span>
                     </div>
                     <FiExternalLink className="text-[#F4F2EE]" />
                   </div>
-                  <p className="text-sm text-gray-300">{group.description}</p>
+                  <p className="text-sm text-gray-300 hover:text-black">{group.description}</p>
                 </div>
               </motion.div>
             </a>

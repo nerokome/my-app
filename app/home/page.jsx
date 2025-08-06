@@ -9,7 +9,7 @@ import NavbarWithScroll from '../landingpage/Pages/Navbarscroll';
 import Image from 'next/image';
 
 
-const images = ['/coa.webp', '/roa.webp', '/toa.webp'];
+const images = ['/coa.webp', '/roa.webp', '/foa.webp'];
 
 const Page = () => {
   const [current, setCurrent] = useState(0);
@@ -58,25 +58,25 @@ const Page = () => {
           transition={{ delay: 0.2, duration: 0.8 }}
         >
           <motion.p
-            className="text-3xl sm:text-4xl mb-2"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
           >
-            THE SPOTLIGHT FOR TOMORROW'S
+            The spotlight for tomorrow's
           </motion.p>
 
           <motion.p
-            className="text-3xl sm:text-4xl mb-4"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
           >
-            SPORTS TALENT
+            sports talent
           </motion.p>
 
           <motion.p
-            className="text-base sm:text-lg mb-10 max-w-xl"
+            className="text-white text-base sm:text-lg mt-4 max-w-2xl font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
@@ -86,7 +86,7 @@ const Page = () => {
 
           <a href="/mission">
             <motion.div
-              className="bg-teal-800 p-4 rounded-3xl text-sm sm:text-lg py-3 sm:py-5 text-white font-semibold cursor-pointer hover:bg-transparent border border-teal-800 transition"
+              className="bg-teal-800 p-4 rounded-3xl mt-5 text-sm sm:text-lg py-3 sm:py-5 text-white font-semibold cursor-pointer hover:bg-transparent border border-teal-800 transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 300 }}

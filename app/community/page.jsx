@@ -37,7 +37,7 @@ const Page = () => {
         {/* 📢 Foreground Text */}
         <div className="relative z-20 flex flex-col items-start justify-center h-full px-4 sm:px-8 md:px-16 lg:px-20 text-left">
           <motion.h1
-            className="text-white text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -46,14 +46,14 @@ const Page = () => {
           </motion.h1>
 
           <motion.p
-            className="text-white text-base sm:text-lg mt-4 max-w-xl"
+            className="text-white text-base sm:text-lg mt-4 max-w-2xl font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
             Join a global network of athletes, scouts, and coaches.
             Share your journey, connect with others, and grow through real conversation.
-            <span className="font-semibold"> Your next breakthrough could start here. </span>
+             Your next breakthrough could start here.
           </motion.p>
 
           <a href="/join">

@@ -30,7 +30,7 @@ const Page = () => {
         {/* Hero Content */}
         <div className="relative z-20 flex flex-col items-start justify-center h-full px-4 sm:px-8 md:px-16 lg:px-20 text-left">
           <motion.h1
-            className="text-white  text-3xl sm:text-3xl md:text-3xl lg:text-4xl font-bold"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -39,21 +39,14 @@ const Page = () => {
           </motion.h1>
 
           <motion.p
-            className="text-white text-base sm:text-lg mt-4 max-w-xl"
+            className="text-white text-base sm:text-lg mt-4 max-w-2xl font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
             Connect with us for partnerships, sales, support, and safeguarding inquiries.
           </motion.p>
-         <motion.a
-          href="mailto:support@scah.club"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-              className="mt-6 px-6 py-3 bg-teal-900 border border-teal-900 shadow-lg text-xl text-white rounded-lg font-semibold hover:bg-transparent transition inline-block text-center"
->
-            View Contact info
-            </motion.a>
+        
 
         </div>
       </div>

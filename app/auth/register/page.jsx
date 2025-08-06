@@ -54,8 +54,8 @@ const Page = () => {
             <Image
             src="/kep.png"
             alt="SCAH Logo"
-            width={160} // md:w-40 = 160px
-            height={64} // Adjust based on actual image ratio
+            width={160} 
+            height={64} 
             className="w-28 sm:w-36 md:w-40 object-contain"
           />
         </Link>
@@ -103,7 +103,25 @@ const Page = () => {
               transition={{ delay: 0.35 }}
             >
               <label htmlFor="name" className="block mb-1 text-sm font-medium">
-                Name
+                first name
+              </label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                value={name}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.35 }}
+            >
+              <label htmlFor="name" className="block mb-1 text-sm font-medium">
+                Last name
               </label>
               <input
                 id="name"
@@ -139,16 +157,15 @@ const Page = () => {
             {/* Role */}
             <div>
               <label htmlFor="role" className="block mb-1 text-sm font-medium">
-                Please specify
+                Role
               </label>
               <select
                 id="role"
                 className="w-full p-2 rounded-lg py-1 px-3 shadow-md border border-gray-300 shadow-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-800 text-sm"
               >
-                <option>I am</option>
-                <option>I am an Athlete</option>
-                <option>I am a Coach</option>
-                <option>I am a Scout</option>
+                <option>Please specify</option>
+                <option> Athlete</option>
+                <option> Scout</option>
               </select>
             </div>
 
