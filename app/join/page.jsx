@@ -50,12 +50,12 @@ const Page = () => {
 
       const data = await res.json();
 
-     if (res.ok) {
+if (res.ok) {
       setMessage('✅ You’ve been added to the waitlist!');
       setEmail('');
       setRole('');
     } else {
-      
+      // Specifically catch the duplicate error
       if (res.status === 400 && data?.error?.toLowerCase().includes('already')) {
         setMessage('❌ This email is already on the waitlist.');
       } else {
@@ -69,6 +69,7 @@ const Page = () => {
     setLoading(false);
   }
 };
+
 
   return (
     <div>
