@@ -68,7 +68,7 @@ const Part = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col rounded-xl bg-teal-900 hover:bg-[#F4F2EE] hover:border hover:border-teal-900 text-white hover:text-black
-               shadow-lg p-4 bg-opacity-90 cursor-pointer hover:scale-105 transition-transform duration-300"
+               shadow-lg  bg-opacity-90 cursor-pointer hover:scale-105 transition-transform duration-300"
               style={{ backgroundColor: " " }}
               custom={index}
               initial="hidden"
@@ -82,10 +82,10 @@ const Part = () => {
       loading="lazy"
       width={800} 
       height={224} 
-      className="w-full h-auto object-cover rounded-md mb-4"
+      className="w-full h-auto object-cover rounded-md mb-4 "
     />
-              <h3 className="text-lg sm:text-xl font-bold  mb-2 hover:text-gray-900">{item.title}</h3>
-              <p className="text-sm sm:text-base  hover:text-gray-900">{item.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold  mb-2 hover:text-gray-900 p-4">{item.title}</h3>
+              <p className="text-sm sm:text-base  hover:text-gray-900 p-4">{item.description}</p>
             </motion.a>
           ))}
         </div>
