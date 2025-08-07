@@ -50,20 +50,25 @@ const Page = () => {
 
       const data = await res.json();
 
-      if (res.ok) {
-        setMessage('✅ You’ve been added to the waitlist!');
-        setEmail('');
-        setRole('');
+     if (res.ok) {
+      setMessage('✅ You’ve been added to the waitlist!');
+      setEmail('');
+      setRole('');
+    } else {
+      
+      if (res.status === 400 && data?.error?.toLowerCase().includes('already')) {
+        setMessage('❌ This email is already on the waitlist.');
       } else {
-        setMessage(data?.error || 'Something went wrong.');
+        setMessage(data?.error || '❌ Something went wrong. Please try again.');
       }
-    } catch (err) {
-      console.error(err);
-      setMessage('❌ Network error. Please try again.');
-    } finally {
-      setLoading(false);
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setMessage('❌ Network error. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div>
