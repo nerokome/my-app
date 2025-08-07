@@ -31,11 +31,11 @@ const Page = () => {
           Your browser does not support the video tag.
         </video>
 
-        {/* 🖼️ Overlay */}
+        
         <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
 
-        {/* 📢 Foreground Text */}
-        <div className="relative z-20 flex flex-col items-start justify-center h-full px-4 sm:px-8 md:px-16 lg:px-20 text-left">
+
+        <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 sm:px-8 md:px-16 lg:px-20 text-left">
           <motion.h1
             className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             initial={{ opacity: 0, y: 20 }}
