@@ -90,7 +90,7 @@ const Commune = () => {
         <motion.h2 className="text-3xl sm:text-4xl font-extrabold mb-6">
           The <span className='text-teal-700'>SCAH</span> Community
         </motion.h2>
-        <motion.p className="text-lg text-gray-700 mb-14">
+        <motion.p className="text-sm sm:text-lg text-center leading-relaxed max-w-2xl mx-auto px-2 mb-16">
           A collaborative space of athletes, coaches, scouts, and fans—each playing a vital role in discovering and developing future stars.
         </motion.p>
 
