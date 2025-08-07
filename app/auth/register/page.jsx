@@ -103,7 +103,7 @@ const Page = () => {
               transition={{ delay: 0.35 }}
             >
               <label htmlFor="name" className="block mb-1 text-sm font-medium">
-                first name
+                First name
               </label>
               <input
                 id="name"

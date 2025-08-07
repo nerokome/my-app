@@ -59,7 +59,7 @@ if (res.ok) {
       if (res.status === 400 && data?.error?.toLowerCase().includes('already')) {
         setMessage('❌ This email is already on the waitlist.');
       } else {
-        setMessage(data?.error || '❌ Something went wrong. Please try again.');
+        setMessage(data?.error || ' This email is already on the waitlist..');
       }
     }
   } catch (err) {
