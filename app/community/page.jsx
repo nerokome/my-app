@@ -19,7 +19,7 @@ const Page = () => {
         <NavbarWithScroll/>
         <div className="relative w-full bg-black min-h-screen overflow-hidden">
       {/* 🎥 Background Video */}
-      <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[700px]">
+      <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px]">
         <video
           autoPlay
           loop
@@ -70,7 +70,7 @@ const Page = () => {
       </div>
 
       {/* ⬇️ Lazy-loaded Part Section */}
-      <div ref={partRef} className="relative z-30">
+      <div ref={partRef} className="relative z-30 ">
         <Suspense fallback={<div className="text-white p-6 text-center">Loading content...</div>}>
           <Commune />
           <Endcontact />

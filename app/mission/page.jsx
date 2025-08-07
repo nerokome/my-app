@@ -18,7 +18,7 @@ const Page = () => {
       <NavbarWithScroll/>
       <div className="relative w-full bg-black min-h-screen overflow-hidden">
       {/* 🎥 Background Video Section */}
-      <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px]">
+      <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px]">
         <video
           autoPlay
           loop
@@ -36,7 +36,7 @@ const Page = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
 
         {/* Foreground Content */}
-        <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
+        <div className="relative z-20 flex flex-col items-center justify-center text-center h-full px-4 ">
           <motion.h1
             className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ const Page = () => {
 
       {/* ⬇️ Content after video */}
       <div ref={partRef} className="relative z-30">
-        <Suspense fallback={<div className="text-white p-8">Loading content...</div>}>
+        <Suspense fallback={<div className="text-white ">Loading content...</div>}>
           <Part/>
           <Endcontact/>
         </Suspense>

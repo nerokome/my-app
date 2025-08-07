@@ -52,7 +52,7 @@ const Page = () => {
 
         {/* Hero Content */}
         <motion.div
-          className="relative z-30 flex flex-col justify-center items-start h-full px-10 sm:px-20 text-white"
+          className="relative z-30 flex flex-col justify-center items-start  h-full px-10 sm:px-20 text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}

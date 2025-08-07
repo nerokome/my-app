@@ -15,7 +15,7 @@ export const metadata = {
   title: "SCAH",
   description: "Next generation scouting ",
    icons: {
-    icon: "/cvan.jpg",
+    icon: "/red.jpg",
     
   },
 };

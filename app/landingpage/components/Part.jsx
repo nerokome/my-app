@@ -49,7 +49,7 @@ const cardVariant = {
 
 const Part = () => {
   return (
-    <section className="min-h-screen bg-[#F4F2EE] px-4 py-12 flex items-center justify-center">
+    <section className="min-h-screen bg-[#F4F2EE] px-4 py-8 flex items-center justify-center">
       <div className="container mx-auto relative z-10">
         <h1 className="text-xl sm:text-4xl font-bold mb-4 text-center leading-tight">
           Get to know <span className="text-teal-700">SCAH</span>
