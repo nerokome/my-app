@@ -1,121 +1,51 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 import Body from '../landingpage/components/Body';
 import Start from '../landingpage/components/Start';
 import NewsletterForm from '../landingpage/components/Newsletterform';
 import Endcontact from '../landingpage/components/Endcontact';
 import NavbarWithScroll from '../landingpage/Pages/Navbarscroll';
 import Image from 'next/image';
-
-
-const images = ['/coa.webp', '/roa.webp', '/foa.webp'];
+import Waitlist from '../landingpage/components/Waitlist';
 
 const Page = () => {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 7000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div>
-      <NavbarWithScroll/>
-       <div className="relative overflow-hidden">
-      <div className='min-h-screen bg-[#F4F2EE] py-16 '>
-           <div className="relative h-[850px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
-       {images.map((img, index) => (
-  <motion.div
-    key={index}
-    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
-      index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
-    }`}
-    initial={false}
-    animate={{ opacity: index === current ? 1 : 0 }}
-    transition={{ duration: 1 }}
-  >
-    <Image
-      src={img}
-      alt={`Slide ${index}`}
-      fill
-      loading={index === current ? 'eager' : 'lazy'}
-      className="object-cover object-center"
-    />
-  </motion.div>
-))}
-
-        {/* Overlay */}
+      <div
+        className="relative w-full h-[600px] sm:h-[800px] overflow-hidden bg-cover bg-center sm:bg-top bg-no-repeat"
+        style={{
+          backgroundImage: `url('/balll.webp')`,
+        }}
+      >        
+        <NavbarWithScroll />
         <div className="absolute inset-0 bg-black/60 z-20" />
+        <div className="relative z-30 flex flex-col justify-center items-start h-full px-10 sm:px-20 text-white py-50">
+          <p className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            The spotlight for tomorrow&apos;s
+          </p>
 
-        {/* Hero Content */}
-        <motion.div
-          className="relative z-30 flex flex-col justify-center items-start  h-full px-10 sm:px-20 text-white"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          <motion.p
-            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            The spotlight for tomorrow's
-          </motion.p>
-
-          <motion.p
-            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
-          >
+          <p className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             sports talent
-          </motion.p>
+          </p>
 
-          <motion.p
-            className="text-white text-base sm:text-lg mt-4 max-w-2xl font-light"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-          >
+          <p className="text-white text-base sm:text-lg mt-4 max-w-2xl font-light">
             Bridging the gap between grassroots talents and the professional game.
-          </motion.p>
+          </p>
 
           <a href="/mission">
-            <motion.div
-              className="bg-teal-800 p-4 rounded-3xl mt-5 hover:cursor-pointer text-sm sm:text-lg py-3 sm:py-5 text-white font-semibold cursor-pointer hover:bg-transparent border border-teal-800 transition"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
+            <div className="bg-teal-800 p-4 rounded-lg mt-5 hover:cursor-pointer text-sm sm:text-lg py-2 sm:py-2 text-white font-semibold hover:bg-transparent border border-teal-800 transition hover:scale-105 active:scale-95">
               Discover more
-            </motion.div>
+            </div>
           </a>
-        </motion.div>
+        </div>
       </div>
+      <div>
+        <Body />
+        <Waitlist/>
+        <Start />
+        <Endcontact />
       </div>
-
-      {/* HERO SECTION */}
-   
-
-      {/* FOLLOW-UP CONTENT */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-      >
-        <Body/>
-        <Start/>
-        <NewsletterForm/>
-        <Endcontact/>
-       
-      </motion.div>
     </div>
-    </div>
-   
   );
 };
 

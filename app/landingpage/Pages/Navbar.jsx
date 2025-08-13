@@ -27,8 +27,8 @@ const Navbar = () => {
   const handleNav = () => setNav(!nav);
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-[#F4F2EE] shadow-sm">
-      <div className="flex justify-between items-center h-20 w-full px-4 font-semibold text-xl text-gray-800 border-b border-gray-300">
+    <div className="fixed top-0 left-0 w-full z-50 bg-[#F4F2EE] shadow-md rounded-4xl shadow-teal-500 ">
+      <div className="flex justify-between items-center h-20 w-full px-4 font-semibold text-xl text-gray-800 ">
         <Link href="/home">
           <Image
             src="/kep.png"

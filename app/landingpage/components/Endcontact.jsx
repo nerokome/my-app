@@ -6,11 +6,10 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
-import { IoIosMail } from "react-icons/io";
 
 const Endcontact = () => {
   return (
-    <footer className="bg-black text-gray-200 px-6 sm:px-8 py-5">
+    <footer className="bg-teal-900 text-gray-200 px-6 sm:px-8 py-5">
       {/* Top Section */}
       <div className="w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-start gap-y-10 gap-x-5 flex-wrap">
         

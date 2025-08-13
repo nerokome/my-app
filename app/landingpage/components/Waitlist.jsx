@@ -1,0 +1,155 @@
+'use client';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+
+const images = ['/wen.webp', '/amerball.webp', '/ken.webp'];
+
+const Waitlist = () => {
+  const [email, setEmail] = useState('');
+  const [role, setRole] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [currentImage, setCurrentImage] = useState(0);
+
+  // Preload slideshow images
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  // Image slideshow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Form submit handler
+  const handleSubscribe = async () => {
+    setMessage('');
+    if (!email || !email.includes('@')) {
+      return setMessage('❌ Please enter a valid email.');
+    }
+    if (!role || role === 'I am') {
+      return setMessage('❌ Please select a role.');
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch('https://scahwaitist.onrender.com/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, role }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage('✅ You’ve been added to the waitlist!');
+        setEmail('');
+        setRole('');
+      } else {
+        if (res.status === 400 && data?.error?.toLowerCase().includes('already')) {
+          setMessage('❌ This email is already on the waitlist.');
+        } else {
+          setMessage(data?.error || '❌ This email is already on the waitlist.');
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage('❌ Network error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <motion.div
+        className="min-h-screen flex flex-col justify-between bg-[#F4F2EE] pt-13"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <main className="flex flex-col md:flex-row">
+          {/* Left Section */}
+          <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
+            <div className="w-full max-w-2xl text-center">
+              <h1 className="text-2xl sm:text-4xl font-semibold">
+                Scout, Spot and Develop Talent
+              </h1>
+              <h2 className="text-2xl sm:text-4xl font-semibold mt-2">
+                — All in one place
+              </h2>
+
+              <p className="mt-6 text-base sm:text-lg font-medium text-gray-700">
+                Welcome to SCAH, the all-in-one scouting hub unlocking hidden youth talent
+                through data, video, and performance tools. Join the next-gen platform
+                built for scouts, coaches, and rising athletes.
+              </p>
+
+              {/* Waitlist Form */}
+              <div className="mt-10 flex flex-col items-center gap-4 w-full max-w-lg mx-auto">
+                <select
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  className="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-800"
+                >
+                  <option>please specify</option>
+                  <option>Athlete</option>
+                  <option>Scout</option>
+                </select>
+
+                <input
+                  type="email"
+                  placeholder="Enter your e-mail"
+                  className="w-full p-3 rounded-lg border shadow-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-teal-800"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+
+                <button
+                  onClick={handleSubscribe}
+                  disabled={loading}
+                  className="bg-teal-800 text-white w-full py-3 rounded-lg shadow-md hover:bg-teal-700 transition-all duration-200"
+                >
+                  {loading ? 'Submitting...' : 'Join Waitlist'}
+                </button>
+
+                {message && (
+                  <p className="mt-2 text-sm font-medium text-teal-800">{message}</p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Section - Image Slideshow */}
+          <div className="md:w-1/2 w-full flex items-center justify-center p-6">
+            <div className="relative w-full max-w-md h-[300px] md:h-[400px] overflow-hidden rounded-3xl shadow-xl bg-transparent">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={images[currentImage]}
+                  src={images[currentImage]}
+                  alt="Slideshow"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                />
+              </AnimatePresence>
+            </div>
+          </div>
+        </main>
+        
+      </motion.div>
+    </div>
+  );
+};
+
+export default Waitlist;

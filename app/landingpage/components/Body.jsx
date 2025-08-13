@@ -1,91 +1,98 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-
-const roadmapItems = [
-  {
-    title: 'Scouting Hub',
-    description:
-      'Discover grassroots talents with professional-grade scouting tools. Track and compare performances in real time.',
-    image: '/coach.webp',
-  },
-  {
-    title: 'Spotlight',
-    description:
-      'Showcase your skills. Shape your future. Access every match you’ve played, build personal highlight reels, track your performance, and create a standout profile that gets noticed.',
-    image: '/rename.webp',
-  },
-  {
-    title: 'CoachVision Suite',
-    description:
-      'Smarter analysis. Better results. Get tactical insights and player-specific video clips. Analyze full matches and fine-tune strategies with visual data that supports every coaching decision.',
-    image: '/jeff.webp',
-  },
-  {
-    title: 'Match Footage Access',
-    description:
-      'Watch full matches, highlight reels, and position-specific clips to assess talent better.',
-    image: '/agent.webp',
-  },
-  {
-    title: 'Smart Agent Matching',
-    description:
-      'Connect rising talents with scouts and agents based on region, skillset, and market value.',
-    image: '/agan.webp',
-  },
-];
+import React from "react";
+import Image from "next/image";
 
 const Body = () => {
+  const features = [
+    {
+      title: "Scouting Hub",
+      image: "/toa.webp",
+      description:
+        "Discover grassroots talents with professional-grade scouting tools. Track and compare performances in real time.",
+    },
+    {
+      title: "Smart Agent Matching",
+      image: "/toa.webp",
+      description:
+        "Connect rising talents with scouts and agents based on region, skillset, and market value.",
+    },
+    {
+      title: "Spotlight",
+      image: "/toa.webp",
+      description:
+        "Showcase your skills. Shape your future. Access every match you’ve played, build personal highlight reels, track your performance, and create a standout profile that gets noticed.",
+    },
+    {
+      title: "Match Footage Access",
+      image: "/toa.webp",
+      description:
+        "Watch full matches, highlight reels, and position-specific clips to assess talent better.",
+    },
+    {
+      title: "CoachVision Suite",
+      image: "/toa.webp",
+      description:
+        "Smarter analysis. Better results. Get tactical insights and player-specific video clips. Analyse full matches and fine-tune strategies with visual data that supports every coaching decision.",
+    },
+  ];
+
   return (
-    <div className="flex flex-col items-center min-h-screen bg-[#F4F2EE] py-12 px-4">
-      <motion.p
-        className="font-semibold text-2xl sm:text-3xl mb-12 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        NextGen Scouting Ecosystem
-      </motion.p>
+    <div className="bg-[#F4F2EE] min-h-screen py-12 px-6">
+      {/* Header */}
+      <div className="text-center max-w-4xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold text-teal-800">
+          Empowering Players to Find <br /> Their Opportunities
+        </h1>
+        <p className="text-teal-600 mt-4">
+          Discover a world of opportunities with our platform. We help players
+          connect with scouts and showcase their talents effectively.
+        </p>
+      </div>
 
-      {roadmapItems.map((item, index) => (
-        <motion.div
-          key={index}
-          className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-20 mt-16 mb-10"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        >
-          {/* Card */}
-          <div className="w-full sm:w-[400px] bg-gray-300 border border-teal-800 shadow-md rounded-lg p-6 hover:shadow-xl transition">
-            <p className="text-2xl mb-4 font-bold text-left">{item.title}</p>
-            <p className="text-lg text-left">{item.description}</p>
+      {/* First Row - 2 items */}
+      <div className="max-w-7xl mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {features.slice(0, 2).map((feature, index) => (
+          <div
+            key={index}
+            className="p-4 flex flex-col bg-white rounded-lg shadow-md"
+          >
+            <div className="relative w-full h-60 sm:h-72 md:h-80">
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                fill
+                className="object-cover rounded-md"
+              />
+            </div>
+            <div className="mt-4">
+              <h3 className="text-xl font-semibold">{feature.title}</h3>
+              <p className="text-gray-600 mt-2">{feature.description}</p>
+            </div>
           </div>
+        ))}
+      </div>
 
-          {/* Divider */}
-          <div className="hidden sm:block w-px h-[250px] bg-teal-800 mx-4"></div>
-          <div className="block sm:hidden w-[80%] h-px bg-teal-800 my-6"></div>
-
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true }}
-         transition={{ duration: 0.5 }}
->
-  <div className="w-[250px] h-[250px] relative">
-    <Image
-      src={item.image}
-      alt={item.title}
-      fill
-      className="object-cover rounded-full shadow-md"
-      loading="lazy"
-    />
-  </div>
-</motion.div>
-        </motion.div>
-      ))}
+      {/* Second Row - 3 items */}
+      <div className="w-full sm:w-[1400px] mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {features.slice(2).map((feature, index) => (
+          <div
+            key={index + 2}
+            className="p-4 flex flex-col bg-white rounded-lg shadow-md"
+          >
+            <div className="relative w-full h-60 sm:h-72 md:h-80">
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                fill
+                className="object-cover rounded-md"
+              />
+            </div>
+            <div className="mt-4">
+              <h3 className="text-xl font-semibold">{feature.title}</h3>
+              <p className="text-gray-600 mt-2">{feature.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

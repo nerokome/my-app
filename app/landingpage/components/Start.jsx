@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Start = () => {
   return (
     <motion.div
-      className="flex flex-col  gap-4 sm:gap-10 items-center justify-center h-[300px] rounded-2xl bg-black px-4 "
+      className="flex flex-col  gap-4 sm:gap-10 items-center justify-center h-[300px]  bg-teal-900 px-4 "
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -29,7 +29,7 @@ const Start = () => {
           <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="rounded-3xl py-2 px-6  font-semibold text-xl text-gray-900 bg-[#F4F2EE]"
+          className="rounded-3xl py-2 px-6  font-semibold text-xl text-gray-200 bg-teal-600"
         >
           Start your journey 
         </motion.button>

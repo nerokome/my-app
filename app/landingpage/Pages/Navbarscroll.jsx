@@ -24,7 +24,9 @@ export default function NavbarWithScroll() {
         backgroundColor: scrolled ? '#F4F2EE' : '#F4F2EE',
         transition: 'background-color 0.3s',
       }}
+      className=''
     >
+      
       <Navbar />
     </div>
   );
