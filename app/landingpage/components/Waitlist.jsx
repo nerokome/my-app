@@ -1,6 +1,6 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const Waitlist = () => {
@@ -8,13 +8,13 @@ const Waitlist = () => {
   const [role, setRole] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-  
+
   const handleSubscribe = async () => {
     setMessage('');
     if (!email || !email.includes('@')) {
       return setMessage('❌ Please enter a valid email.');
     }
-    if (!role || role === 'I am') {
+    if (!role || role === 'please specify') {
       return setMessage('❌ Please select a role.');
     }
 
@@ -58,7 +58,7 @@ const Waitlist = () => {
       >
         <main className="flex flex-col md:flex-row">
           {/* Left Section */}
-          <div className="md:w-1/2 w-full flex items-center justify-center py-12">
+          <div className="md:w-1/2 w-full flex items-center justify-center py-12 px-4">
             <div className="w-full max-w-xl text-center">
               <h1 className="text-2xl sm:text-4xl font-semibold">
                 Scout, Spot and Develop Talent
@@ -74,7 +74,7 @@ const Waitlist = () => {
               </p>
 
               {/* Waitlist Form */}
-              <div className="mt-10 flex flex-col items-center gap-4 w-[450px] sm:max-w-5xl mx-auto">
+              <div className="mt-10 flex flex-col items-center gap-4 w-full max-w-sm sm:max-w-md mx-auto">
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
@@ -108,20 +108,18 @@ const Waitlist = () => {
             </div>
           </div>
 
-          
-          <div className="md:w-1/2 w-full flex items-center justify-center ">
-            <div className="relative w-full max-w-xl h-[300px] md:h-[500px] overflow-hidden rounded-3xl shadow-xl bg-transparent">
-            <Image
-             src="/Frame 38.png"
-            alt="backto"
-             fill
-             className="object-cover"
-            />
+          {/* Right Section */}
+          <div className="md:w-1/2 w-full flex items-center justify-center px-4 pb-6 md:pb-0">
+            <div className="relative w-full max-w-[400px] sm:max-w-md md:max-w-xl h-[350px] sm:h-[300px] md:h-[500px] overflow-hidden rounded-3xl shadow-xl bg-transparent">
+              <Image
+                src="/Frame 38.png"
+                alt="backto"
+                fill
+                className="object-cover"
+              />
             </div>
-
           </div>
         </main>
-        
       </motion.div>
     </div>
   );
