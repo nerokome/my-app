@@ -41,7 +41,7 @@ const Page = () => {
 
     setLoading(true);
     try {
-      const res = await fetch('https://scahwaitist.onrender.com/api/waitlist', {
+      const res = await fetch(process.env.NEXT_PUBLIC_API_URL, {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
