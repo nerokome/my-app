@@ -21,9 +21,9 @@ const page = () => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       
-      <div
-        className="md:w-1/2 w-full bg-cover bg-center flex flex-col justify-center items-center text-white p-8"
-        style={{ backgroundImage: "url('/dram.png')" }}
+       <div
+        className="md:w-1/2 w-full bg-cover bg-center flex flex-col  text-white p-8"
+        style={{ backgroundImage: "url('/blame.png')" }}
       >
          <Link href="/home">
           <Image
@@ -35,13 +35,11 @@ const page = () => {
             className="object-contain"
           />
         </Link>
-        <div className="p-6 rounded-lg text-center max-w-sm">
-          
-          <h1 className="text-3xl font-bold">Welcome to SCAH</h1>
+        <div className="p-6 rounded-lg flex flex-col items-center justify-center text-center mt-15 w-full">
+          <h1 className="text-3xl font-bold">Welcome back to SCAH</h1>
           <p className="mt-2 text-sm">
             The ultimate platform for football scouts to connect with talents.
           </p>
-      
         </div>
       </div>
 

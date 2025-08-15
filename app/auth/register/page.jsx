@@ -22,28 +22,21 @@ const Page = () => {
       
       {/* Left Section */}
       <div
-        className="md:w-1/2 w-full bg-cover bg-center flex flex-col justify-center items-center text-white p-8"
-        style={{ backgroundImage: "url('/dram.png')" }}
+        className="md:w-1/2 w-full bg-cover bg-center flex flex-col  text-white p-8"
+        style={{ backgroundImage: "url('/namee.png')" }}
       >
         <Link href="/home">
           <Image
             src="/yattr.png"
             alt="SCAH Logo"
-            width={80}
-            height={30}
+            width={100}
+            height={40}
             priority
             className="object-cover"
 
-
-
-
-
-
-
-
           />
         </Link>
-        <div className="p-6 rounded-lg text-center max-w-sm">
+        <div className="p-6 rounded-lg flex flex-col items-center justify-center mt-15 text-center w-full">
           <h1 className="text-3xl font-bold">Welcome to SCAH</h1>
           <p className="mt-2 text-sm">
             The ultimate platform for football scouts to connect with talents.
