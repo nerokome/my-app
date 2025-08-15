@@ -16,7 +16,7 @@ const Start = () => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Be one of us today and get discovered
+        Ready to Change the Game?
       </motion.p>
 
       <motion.div

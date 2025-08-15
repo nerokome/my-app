@@ -7,13 +7,13 @@ const Body = () => {
       title: "Scouting Hub",
       image: "/Frame 20.png",
       description:
-        "Discover grassroots talents with professional-grade scouting tools. Track and compare performances in real time.",
+        "Scout smarter, not harder with better and easy accessibility to tools.",
     },
     {
       title: "Smart Agent Matching",
       image: "/Frame 23.png",
       description:
-        "Connect rising talents with scouts and agents based on region, skillset, and market value.",
+        "Our algorithm matches players with the right representatives based on playing style, career goals, and market positioning",
     },
     {
       title: "Spotlight",
@@ -25,10 +25,10 @@ const Body = () => {
       title: "Match Footage Access",
       image: "/Frame 25.png",
       description:
-        "Watch full matches, highlight reels, and position-specific clips to assess talent better.",
+        "Never Miss a Moment of Brilliance with comprehensive video libraries that help scouts identify talent faster",
     },
     {
-      title: "CoachVision Suite",
+      title: "Game-Changing Insights for Coaches",
       image: "/Frame 26.png",
       description:
         "Smarter analysis. Better results. Get tactical insights and player-specific video clips. Analyse full matches and fine-tune strategies with visual data that supports every coaching decision.",
@@ -40,11 +40,11 @@ const Body = () => {
       {/* Header */}
       <div className="text-center max-w-4xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold text-teal-800">
-          Empowering Players to Find <br /> Their Opportunities
+         Every Player Deserves To Be Seen
         </h1>
         <p className="text-teal-600 mt-4">
-          Discover a world of opportunities with our platform. We help players
-          connect with scouts and showcase their talents effectively.
+         You've put in the work. Now let us put you in front of the right people.
+          Our intelligent matching system turns years of dedication into career.
         </p>
       </div>
 

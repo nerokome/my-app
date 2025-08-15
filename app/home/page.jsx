@@ -27,7 +27,7 @@ const Page = () => {
           </p>
 
           <p className="text-white text-base sm:text-lg mt-4 max-w-2xl font-light">
-            Bridging the gap between grassroots talents and the professional game.
+           From local leagues to professional contracts - our platform scales talent identification across every level of sport
           </p>
 
           <a href="/mission">
