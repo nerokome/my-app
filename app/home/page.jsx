@@ -39,8 +39,9 @@ const Page = () => {
       </div>
       <div>
         <Body />
+         <Start />
         <Waitlist/>
-        <Start />
+       
         <Endcontact />
       </div>
     </div>

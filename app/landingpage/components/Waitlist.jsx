@@ -50,7 +50,7 @@ const Waitlist = () => {
   return (
     <div>
       <motion.div
-        className="min-h-screen flex flex-col justify-between bg-gray-50 pt-13"
+        className="h-[900px] sm:h-[600px] flex flex-col justify-between bg-gray-50 pt-13"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
