@@ -74,7 +74,7 @@ const Waitlist = () => {
               </p>
 
               {/* Waitlist Form */}
-              <div className="mt-10 flex flex-col items-center gap-4 w-full max-w-sm sm:max-w-md mx-auto">
+              <div className="mt-10 flex flex-col items-center gap-4 w-full max-w-sm sm:max-w-2xl mx-auto">
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
