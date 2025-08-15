@@ -28,7 +28,7 @@ const Body = () => {
         "Never Miss a Moment of Brilliance with comprehensive video libraries that help scouts identify talent faster",
     },
     {
-      title: "Game-Changing Insights for Coaches",
+      title: "Game-Changing Insights from Coaches",
       image: "/Frame 26.png",
       description:
         "Smarter analysis. Better results. Get tactical insights and player-specific video clips. Analyse full matches and fine-tune strategies with visual data that supports every coaching decision.",
