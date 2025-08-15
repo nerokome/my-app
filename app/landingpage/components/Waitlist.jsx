@@ -1,34 +1,14 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-
-const images = ['/wen.webp', '/amerball.webp', '/ken.webp'];
+import Image from 'next/image';
 
 const Waitlist = () => {
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const [currentImage, setCurrentImage] = useState(0);
-
-  // Preload slideshow images
-  useEffect(() => {
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
-
-  // Image slideshow
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Form submit handler
+  
   const handleSubscribe = async () => {
     setMessage('');
     if (!email || !email.includes('@')) {
@@ -70,7 +50,7 @@ const Waitlist = () => {
   return (
     <div>
       <motion.div
-        className="min-h-screen flex flex-col justify-between bg-[#F4F2EE] pt-13"
+        className="min-h-screen flex flex-col justify-between bg-gray-50 pt-13"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -78,8 +58,8 @@ const Waitlist = () => {
       >
         <main className="flex flex-col md:flex-row">
           {/* Left Section */}
-          <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
-            <div className="w-full max-w-2xl text-center">
+          <div className="md:w-1/2 w-full flex items-center justify-center py-12">
+            <div className="w-full max-w-xl text-center">
               <h1 className="text-2xl sm:text-4xl font-semibold">
                 Scout, Spot and Develop Talent
               </h1>
@@ -94,7 +74,7 @@ const Waitlist = () => {
               </p>
 
               {/* Waitlist Form */}
-              <div className="mt-10 flex flex-col items-center gap-4 w-full max-w-lg mx-auto">
+              <div className="mt-10 flex flex-col items-center gap-4 w-[450px] sm:max-w-5xl mx-auto">
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value)}
@@ -128,22 +108,17 @@ const Waitlist = () => {
             </div>
           </div>
 
-          {/* Right Section - Image Slideshow */}
-          <div className="md:w-1/2 w-full flex items-center justify-center p-6">
-            <div className="relative w-full max-w-md h-[300px] md:h-[400px] overflow-hidden rounded-3xl shadow-xl bg-transparent">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={images[currentImage]}
-                  src={images[currentImage]}
-                  alt="Slideshow"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6 }}
-                />
-              </AnimatePresence>
+          
+          <div className="md:w-1/2 w-full flex items-center justify-center ">
+            <div className="relative w-full max-w-xl h-[300px] md:h-[500px] overflow-hidden rounded-3xl shadow-xl bg-transparent">
+            <Image
+             src="/Frame 38.png"
+            alt="backto"
+             fill
+             className="object-cover"
+            />
             </div>
+
           </div>
         </main>
         

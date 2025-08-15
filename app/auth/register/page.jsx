@@ -1,252 +1,167 @@
 'use client';
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FiEye, FiEyeOff } from "react-icons/fi";
-import Dong from "../../landingpage/components/Dong";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 const Page = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
-    password2: "",
+    confirmPassword: "",
+    role: "",
   });
-
-  const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showPassword2, setShowPassword2] = useState(false);
-
-  const { name, email, password, password2 } = formData;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError("");
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!name || !email || !password || !password2) {
-      return setError("Please fill in all fields.");
-    }
-
-    if (password !== password2) {
-      setError("Passwords do not match.");
-    } else {
-      const userData = { name, email, password };
-      console.log("Registering user:", userData);
-    }
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col w-full overflow-x-hidden">
-      {/* Logo Section */}
-     <div className="flex items-start justify-center h-23  sm:h-30 w-full bg-black ">
-             <motion.div
-               className="flex  self-start "
-               initial={{ x: -50, opacity: 0 }}
-               animate={{ x: 0, opacity: 1 }}
-               transition={{ duration: 0.6 }}
-             >
-              <Link href="/home" >
-            <Image
-            src="/kep.png"
+    <div className="flex flex-col md:flex-row min-h-screen">
+      
+      {/* Left Section */}
+      <div
+        className="md:w-1/2 w-full bg-cover bg-center flex flex-col justify-center items-center text-white p-8"
+        style={{ backgroundImage: "url('/dram.png')" }}
+      >
+        <Link href="/home">
+          <Image
+            src="/yattr.png"
             alt="SCAH Logo"
-            width={160} 
-            height={64} 
-            className="w-28 sm:w-36 md:w-40 object-contain"
+            width={80}
+            height={30}
+            priority
+            className="object-cover"
+
+
+
+
+
+
+
+
           />
         </Link>
-             </motion.div>
-           </div>
-     
+        <div className="p-6 rounded-lg text-center max-w-sm">
+          <h1 className="text-3xl font-bold">Welcome to SCAH</h1>
+          <p className="mt-2 text-sm">
+            The ultimate platform for football scouts to connect with talents.
+          </p>
+        </div>
+      </div>
 
-      {/* Form Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="flex flex-1 items-center justify-center bg-[#F4F2EE] px-4 sm:px-6 py-10 w-full overflow-x-hidden"
-      >
-        <motion.div
-          className="w-full max-w-sm sm:max-w-md md:max-w-lg xl:max-w-xl bg-white p-6 sm:p-8 rounded-xl shadow-xl"
-          initial={{ scale: 0.95 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-        >
-          <motion.h2
-            className="text-2xl sm:text-3xl font-bold mb-6 text-center text-teal-800"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            Create an Account
-          </motion.h2>
+      
+      <div className="md:w-1/2 w-full flex items-center justify-center bg-gray-50 p-6 md:p-10">
+        <div className="w-full max-w-xl">
+          <h2 className="text-xl md:text-3xl font-semibold text-center text-teal-900 mb-6">
+            Create an account
+          </h2>
 
-          {error && (
-            <motion.p
-              className="text-red-500 text-sm mb-4 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              {error}
-            </motion.p>
-          )}
+          <form className="space-y-6">
+            
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
+              <div className="w-full">
+                <label className="block text-md font-medium">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="Enter your name"
+                  className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+                  onChange={handleChange}
+                />
+              </div>
 
-          <form onSubmit={handleSubmit} className="grid gap-4">
-            {/* Name */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.35 }}
-            >
-              <label htmlFor="name" className="block mb-1 text-sm font-medium">
-                First Name
-              </label>
+              <div className="w-full">
+                <label className="block text-md font-medium">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Enter your name"
+                  className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            
+            <div>
+              <label className="block text-md font-medium">Email</label>
               <input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Enter your name"
-                value={name}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.35 }}
-            >
-              <label htmlFor="name" className="block mb-1 text-sm font-medium">
-                Last Name
-              </label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Enter your name"
-                value={name}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
-              />
-            </motion.div>
-
-            {/* Email */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              <label htmlFor="email" className="block mb-1 text-sm font-medium">
-                Email
-              </label>
-              <input
-                id="email"
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                value={email}
+                className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
               />
-            </motion.div>
-
-            {/* Role */}
-            <div>
-              <label htmlFor="role" className="block mb-1 text-sm font-medium">
-                Role
-              </label>
-              <select
-                id="role"
-                className="w-full p-2 rounded-lg py-1 px-3 shadow-md border border-gray-300 shadow-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-800 text-sm"
-              >
-                <option>Please specify</option>
-                <option> Athlete</option>
-                <option> Scout</option>
-              </select>
             </div>
 
-            {/* Password */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.45 }}
-            >
-              <label htmlFor="password" className="block mb-1 text-sm font-medium">
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
-                />
-                <div
-                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-500"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <FiEyeOff /> : <FiEye />}
-                </div>
-              </div>
-            </motion.div>
+          
+            <div>
+              <label className="block text-md font-medium">Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+                onChange={handleChange}
+              />
+            </div>
 
-            {/* Confirm Password */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <label htmlFor="password2" className="block mb-1 text-sm font-medium">
-                Confirm Password
-              </label>
-              <div className="relative">
-                <input
-                  id="password2"
-                  type={showPassword2 ? "text" : "password"}
-                  name="password2"
-                  placeholder="Confirm your password"
-                  value={password2}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-800 focus:outline-none text-sm"
-                />
-                <div
-                  className="absolute inset-y-0 right-3 flex items-center cursor-pointer text-gray-500"
-                  onClick={() => setShowPassword2(!showPassword2)}
-                >
-                  {showPassword2 ? <FiEyeOff /> : <FiEye />}
-                </div>
+            
+            <div>
+              <label className="block text-md font-medium">Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+                onChange={handleChange}
+              />
+            </div>
+
+            
+            <div>
+              <label className="block text-sm font-medium mb-2">Role</label>
+              <div className="flex gap-3 flex-wrap">
+                {["Scout", "Player", "Coach"].map((role) => (
+                  <button
+                    key={role}
+                    type="button"
+                    onClick={() => setFormData({ ...formData, role })}
+                    className={`px-4 py-2 border rounded-md ${
+                      formData.role === role
+                        ? "bg-emerald-500 text-white"
+                        : "border-gray-300 text-gray-700"
+                    }`}
+                  >
+                    {role}
+                  </button>
+                ))}
               </div>
-            </motion.div>
+              <p className="text-xs text-gray-500 mt-1">
+                Select your role in football.
+              </p>
+            </div>
 
             {/* Submit */}
-            <motion.button
+            <button
               type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full py-3 mt-4 bg-teal-800 text-white rounded-md hover:bg-teal-900 transition duration-200 text-sm font-medium"
+              className="w-full py-3  bg-teal-900 text-white rounded-md hover:bg-teal-800 transition"
             >
               Create an account
-            </motion.button>
+            </button>
           </form>
 
-          {/* Login Redirect */}
-          <p className="mt-4 text-center text-sm text-gray-500">
+          {/* Login Link */}
+          <p className="mt-6 text-sm text-center text-gray-600">
             Already have an account?{" "}
-            <a href="/auth/nero" className="text-teal-800 hover:underline">
+            <Link href="/auth/login" className="text-teal-700 font-medium">
               Login
-            </a>
+            </Link>
           </p>
-        </motion.div>
-      </motion.div>
-
-      <Dong />
+        </div>
+      </div>
     </div>
   );
 };

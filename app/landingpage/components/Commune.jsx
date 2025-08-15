@@ -85,7 +85,7 @@ const Commune = () => {
   };
 
   return (
-    <div className="bg-[#F4F2EE] py-16 px-4 sm:px-10 min-h-screen">
+    <div className="bg-gray-50 py-16 px-4 sm:px-10 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <motion.h2 className="text-3xl sm:text-4xl font-extrabold mb-6">
           The <span className='text-teal-700'>SCAH</span> Community

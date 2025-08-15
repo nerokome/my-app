@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
+import Image from 'next/image';
 
 const Endcontact = () => {
   return (
@@ -20,11 +21,14 @@ const Endcontact = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <img
-            src="/kep.png"
-            alt="SCAH Logo"
-            className="w-32 h-auto md:w-40 object-contain"
-          />
+         <Image
+                     src="/yattr.png"
+                     alt="SCAH Logo"
+                     width={80}
+                     height={30}
+                     priority
+                     className="object-contain"
+                   />
         </motion.div>
 
         {/* Legal */}

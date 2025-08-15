@@ -21,7 +21,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F4F2EE]  px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50  px-4">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <h1 className="text-xl font-bold mb-4">Forgot password</h1>
         <form onSubmit={handleSubmit}>
@@ -41,7 +41,7 @@ export default function ForgotPasswordPage() {
           </button>
            <p className="mt-4 text-center text-sm text-gray-500">
             Go back to{" "}
-            <a href="/auth/nero" className="text-teal-800 hover:underline">
+            <a href="/auth/login " className="text-teal-800 hover:underline">
               Login
             </a>
           </p>

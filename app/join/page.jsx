@@ -75,7 +75,7 @@ if (res.ok) {
     <div>
       <NavbarWithScroll />
       <motion.div
-        className="min-h-screen flex flex-col justify-between bg-[#F4F2EE] pt-13"
+        className="min-h-screen flex flex-col justify-between bg-gray-50 pt-13"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
