@@ -117,7 +117,7 @@ const Page = () => {
             <div>
               <label className="block text-sm font-medium mb-2">Role</label>
               <div className="flex gap-3 flex-wrap">
-                {["Scout", "Player", "Coach"].map((role) => (
+                {["Scout", "Player"].map((role) => (
                   <button
                     key={role}
                     type="button"

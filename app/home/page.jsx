@@ -19,7 +19,7 @@ const Page = () => {
         
         <div className="relative z-30 flex flex-col justify-center items-start h-full px-10 sm:px-20 text-white py-50 sm:py-100">
           <p className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            The spotlight for tomorrow&apos;s
+            Your Talent, The world's stage
           </p>
 
           <p className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">

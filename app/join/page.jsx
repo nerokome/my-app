@@ -86,15 +86,12 @@ if (res.ok) {
           <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
             <div className="w-full max-w-2xl text-center">
               <h1 className="text-2xl sm:text-4xl font-semibold">
-                Scout, Spot and Develop Talent
+                The Complete Talent Intelligence Platform
               </h1>
-              <h2 className="text-2xl sm:text-4xl font-semibold mt-2">
-                — All in one place
-              </h2>
+              
 
               <p className="mt-6 text-base sm:text-lg font-medium text-gray-700">
-                Welcome to SCAH, the all-in-one scouting hub unlocking hidden youth talent through data,
-                video, and performance tools. Join the next-gen platform built for scouts, coaches, and rising athletes.
+                We're building the future of talent discovery. Join our waitlist to be among the first to experience the platform when we launch
               </p>
 
               {/* Waitlist Form */}
@@ -104,7 +101,7 @@ if (res.ok) {
                   onChange={(e) => setRole(e.target.value)}
                   className="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-800"
                 >
-                  <option>please specify</option>
+                  <option>I am</option>
                   <option>Athlete</option>
                   
                   <option>Scout</option>

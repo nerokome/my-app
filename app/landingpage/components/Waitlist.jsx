@@ -76,7 +76,7 @@ const Waitlist = () => {
                   onChange={(e) => setRole(e.target.value)}
                   className="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-800"
                 >
-                  <option>please specify</option>
+                  <option>I am</option>
                   <option>Athlete</option>
                   <option>Scout</option>
                 </select>
