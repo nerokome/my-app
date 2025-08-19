@@ -22,9 +22,7 @@ const Page = () => {
             Your Talent, The world's stage
           </p>
 
-          <p className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            sports talent
-          </p>
+        
 
           <p className="text-white text-base sm:text-lg mt-4 max-w-2xl font-light">
            From local leagues to professional contracts - our platform scales talent identification across every level of sport

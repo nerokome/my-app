@@ -50,7 +50,7 @@ const Waitlist = () => {
   return (
     <div>
       <motion.div
-        className="h-[900px] sm:h-[600px] flex flex-col justify-between bg-gray-50 pt-13"
+        className="h-[950px] sm:h-[700px] flex flex-col justify-between bg-gray-50 my-auto pt-13"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -76,7 +76,7 @@ const Waitlist = () => {
                   onChange={(e) => setRole(e.target.value)}
                   className="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-800"
                 >
-                  <option>I am</option>
+                  <option>I am.....</option>
                   <option>Athlete</option>
                   <option>Scout</option>
                 </select>

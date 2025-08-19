@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import NavbarWithScroll from '../landingpage/Pages/Navbarscroll';
 import Endcontact from '../landingpage/components/Endcontact';
 
-const images = ['/wen.webp', '/amerball.webp', '/ken.webp'];
+const images = ['/wen.webp','/amerball.webp','/ken.webp'];
 
 const Page = () => {
   const [email, setEmail] = useState('');
@@ -13,7 +13,6 @@ const Page = () => {
   const [message, setMessage] = useState('');
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Preload slideshow images
   useEffect(() => {
     images.forEach((src) => {
       const img = new Image();
@@ -21,22 +20,21 @@ const Page = () => {
     });
   }, []);
 
-  // Image slideshow
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, []
+);
 
-  // Form submit handler
   const handleSubscribe = async () => {
     setMessage('');
     if (!email || !email.includes('@')) {
       return setMessage('❌ Please enter a valid email.');
     }
     if (!role || role === 'I am') {
-      return setMessage('❌ Please select a role.');
+      return setMessage('❌ Please select a role.',);
     }
 
     setLoading(true);
@@ -55,7 +53,6 @@ if (res.ok) {
       setEmail('');
       setRole('');
     } else {
-      // Specifically catch the duplicate error
       if (res.status === 400 && data?.error?.toLowerCase().includes('already')) {
         setMessage('❌ This email is already on the waitlist.');
       } else {
@@ -69,8 +66,6 @@ if (res.ok) {
     setLoading(false);
   }
 };
-
-
   return (
     <div>
       <NavbarWithScroll />
@@ -82,19 +77,14 @@ if (res.ok) {
         transition={{ duration: 0.6 }}
       >
         <main className="flex flex-col md:flex-row">
-          {/* Left Section */}
           <div className="md:w-1/2 w-full flex items-center justify-center px-6 py-12">
             <div className="w-full max-w-2xl text-center">
               <h1 className="text-2xl sm:text-4xl font-semibold">
                 The Complete Talent Intelligence Platform
               </h1>
-              
-
               <p className="mt-6 text-base sm:text-lg font-medium text-gray-700">
                 We're building the future of talent discovery. Join our waitlist to be among the first to experience the platform when we launch
               </p>
-
-              {/* Waitlist Form */}
               <div className="mt-10 flex flex-col items-center gap-4 w-full max-w-lg mx-auto">
                 <select
                   value={role}
@@ -103,7 +93,6 @@ if (res.ok) {
                 >
                   <option>I am</option>
                   <option>Athlete</option>
-                  
                   <option>Scout</option>
                 </select>
 
@@ -129,8 +118,6 @@ if (res.ok) {
               </div>
             </div>
           </div>
-
-          {/* Right Section - Image Slideshow */}
           <div className="md:w-1/2 w-full flex items-center justify-center p-6">
             <div className="relative w-full max-w-md h-[300px] md:h-[400px] overflow-hidden rounded-3xl shadow-xl bg-transparent">
               <AnimatePresence mode="wait">
