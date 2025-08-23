@@ -1,12 +1,11 @@
 'use client';
 import NavbarWithScroll from "./landingpage/Pages/Navbarscroll";
-import Star from "./landingpage/star";
 
-export default function LandingLayout({ children }) {
+export default function LandingLayout({  }) {
   return (
     
     <>
-     <div className="p-6">
+     <div className="p-6 ">
       <NavbarWithScroll/>
     </div>
     </>
