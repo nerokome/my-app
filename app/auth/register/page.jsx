@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Eye, EyeOff } from "lucide-react"; // 👈 import icons
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -13,16 +14,18 @@ const Page = () => {
     role: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false); 
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
-      
-      {/* Left Section */}
+    
       <div
-        className="md:w-1/2 w-full bg-cover bg-center flex flex-col  text-white p-8"
+        className="md:w-1/2 w-full bg-cover bg-center flex flex-col text-white p-8"
         style={{ backgroundImage: "url('/namee.png')" }}
       >
         <Link href="/home">
@@ -33,7 +36,6 @@ const Page = () => {
             height={40}
             priority
             className="object-cover"
-
           />
         </Link>
         <div className="p-6 rounded-lg flex flex-col items-center justify-center mt-15 text-center w-full">
@@ -52,7 +54,7 @@ const Page = () => {
           </h2>
 
           <form className="space-y-6">
-            
+          
             <div className="flex flex-col sm:flex-row gap-4 w-full">
               <div className="w-full">
                 <label className="block text-md font-medium">First Name</label>
@@ -64,7 +66,6 @@ const Page = () => {
                   onChange={handleChange}
                 />
               </div>
-
               <div className="w-full">
                 <label className="block text-md font-medium">Last Name</label>
                 <input
@@ -77,7 +78,7 @@ const Page = () => {
               </div>
             </div>
 
-            
+          
             <div>
               <label className="block text-md font-medium">Email</label>
               <input
@@ -89,31 +90,51 @@ const Page = () => {
               />
             </div>
 
-          
+            
             <div>
               <label className="block text-md font-medium">Password</label>
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-                onChange={handleChange}
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Enter your password"
+                  className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+                  onChange={handleChange}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-2.5 text-gray-500"
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
 
             
             <div>
               <label className="block text-md font-medium">Confirm Password</label>
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm your password"
-                className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
-                onChange={handleChange}
-              />
+              <div className="relative">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  placeholder="Confirm your password"
+                  className="mt-1 w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500"
+                  onChange={handleChange}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-2.5 text-gray-500"
+                  tabIndex={-1}
+                >
+                  {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
 
-            
+          
             <div>
               <label className="block text-sm font-medium mb-2">Role</label>
               <div className="flex gap-3 flex-wrap">
@@ -137,16 +158,16 @@ const Page = () => {
               </p>
             </div>
 
-            {/* Submit */}
+            
             <button
               type="submit"
-              className="w-full py-3  bg-teal-900 text-white rounded-md hover:bg-teal-800 transition"
+              className="w-full py-3 bg-teal-900 text-white rounded-md hover:bg-teal-800 transition"
             >
               Create an account
             </button>
           </form>
 
-          {/* Login Link */}
+          
           <p className="mt-6 text-sm text-center text-gray-600">
             Already have an account?{" "}
             <Link href="/auth/login" className="text-teal-700 font-medium">
