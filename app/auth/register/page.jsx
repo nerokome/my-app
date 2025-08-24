@@ -161,7 +161,7 @@ const Page = () => {
             
             <button
               type="submit"
-              className="w-full py-3 bg-teal-900 text-white rounded-md hover:bg-teal-800 transition"
+              className="w-full bg-teal-900 text-white py-2 px-4 rounded-md hover:bg-green-800 transition"
             >
               Create an account
             </button>
